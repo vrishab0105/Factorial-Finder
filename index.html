@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <title>Factorial App By Vrishab</title>
+        <style>
+           *{
+            font-size: 40px;
+           }
+            body
+             {
+                 font-family: Arial, sans-serif; 
+                 background-color: lightgreen; 
+            } 
+            
+            h1, h3{ color: #333; }
+             h2 { color: #555; margin-top: 20px; }
+        </style>
+
+    </head>
+
+    <body>
+    <center>
+        <h1>Factorial Finder</h1>
+        <form onsubmit="fact()">
+            <input type="number" id="num" placeholder="Enter +ve integer"/>
+            <br/><br/>
+            <input type="submit" value="M1"/>
+            <input type="submit" value="M2"/>
+            <input type="submit" value="M3"/>
+        </form>
+
+        <h2 id="msg"></h2>
+        <br/><br/><br/><br/><br/>
+        <h3>Guided By: Kamal Sir</h3>
+    </center>
+
+    <script>
+        function fact()
+        {
+            event.preventDefault();
+            let num=document.getElementById("num");
+            let msg=document.getElementById("msg");
+            let action=document.activeElement.value;
+
+            if(num.value === "")
+            {
+                alert("Number is Empty");
+                msg.innerHTML="";
+                num.focus();
+                return;
+            }
+
+            let n=parseInt(num.value);
+
+            if(n<0)
+            {
+                alert("Number should be minimum 0");
+                msg.innerHTML="";
+                num.focus();
+                return;
+            }
+            
+
+            if(action === "M1")
+            {
+                let f=1,i=1;
+                while(i<=n)
+                {
+                    f=f*i;
+                    i++;
+                }
+                
+                msg.innerHTML="By M1: "+f;
+            }
+
+            else if(action === "M2")
+            {
+                let f=1,i=1;
+                do
+                {
+                    f=f*i;
+                    i++;
+                }while(i<=n);
+
+                msg.innerHTML="By M2: "+f;
+            }
+
+            else if(action === "M3")
+            {
+                let f=1;
+                for(let i=1; i<=n; i++)
+                {
+                    f=f*i;
+
+                }
+                msg.innerHTML="By M3: "+f;
+            }
+        }
+    </script>
+        
+    </body>
+</html>
